@@ -35,10 +35,11 @@ module.exports = {
         ignore: ['after-comment'],
       },
     ],
+    'custom-property-pattern': 'foo-.+',
     // 'scale-unlimited/declaration-strict-value': [
     //   ['/color$/', 'background-color', 'border-color'],
     //   { expandShorthand: true, ignoreValues: 'transparent' },
     // ],
   },
   ignoreFiles: ['**/app.scss', '**/color.scss', '**/reset.scss'],
-}
+};
