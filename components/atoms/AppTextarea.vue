@@ -1,17 +1,19 @@
 <template>
-  <div>
-    <AppHeader :top="tabList.top" :paths="tabList.list" />
-    <Nuxt />
-  </div>
+  <textarea class="app-textarea" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api';
-import { tabList } from '../services/tabList';
 
 export default defineComponent({
   setup() {
-    return { tabList };
+    return {};
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.app-textarea {
+  border: 1px solid black;
+}
+</style>

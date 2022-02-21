@@ -1,19 +1,39 @@
 <template>
   <header class="app-header">
-    <NuxtLink to="/" class="logo">Nuxt</NuxtLink>
-    <NuxtLink to="/" class="item">Top</NuxtLink>
-    <NuxtLink to="/" class="item">Post</NuxtLink>
+    <NuxtLink :to="top.path" class="logo">{{ top.name }}</NuxtLink>
+    <NuxtLink
+      v-for="(path, index) in paths"
+      :key="index"
+      :to="path.path"
+      class="item"
+      >{{ path.name }}</NuxtLink
+    >
   </header>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api';
+
+interface PathType {
+  name: string;
+  path: string;
+}
 
 export default defineComponent({
-  setup() {
-    return {}
+  props: {
+    top: {
+      type: Object as PropType<PathType>,
+      required: true,
+    },
+    paths: {
+      type: Array as PropType<PathType[]>,
+      required: true,
+    },
   },
-})
+  setup() {
+    return {};
+  },
+});
 </script>
 
 <style lang="scss" scoped>
