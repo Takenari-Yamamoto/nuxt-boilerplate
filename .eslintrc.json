@@ -1,61 +1,9 @@
 {
   "extends": [
-    "airbnb-base",
-    "plugin:vue/recommended",
-    "prettier",
-    "prettier/vue"
+    "@nuxtjs/eslint-config-typescript",
+    "plugin:nuxt/recommended",
+    "prettier"
   ],
   "plugins": ["prettier"],
-  "rules": {
-    "prettier/prettier": "error",
-    "max-len": [
-      "error",
-      80,
-      {
-        "ignorePattern": "^import\\s.+\\sfrom\\s.+;$"
-      }
-    ],
-    "no-restricted-globals": ["warn"],
-    "vue/max-len": [
-      "error",
-      {
-        "template": 120,
-        "ignorePattern": "^import\\s.+\\sfrom\\s.+;$"
-      }
-    ],
-    /**
-     * NOTE:
-     * サーバーと受け渡しするkeyはsnake_caseを使いたいため
-     * 以下のruleをoff
-     */
-    "camelcase": "off"
-  },
-  "overrides": [
-    {
-      "files": ["*.vue"],
-      "rules": {
-        "max-len": "off"
-      }
-    }
-  ],
-  "env": {
-    "browser": true,
-    "node": true,
-    "jest": true
-  },
-  "globals": {
-    "__basedir": "readonly"
-  },
-  "settings": {
-    "import/resolver": {
-      "alias": {
-        "map": [
-          ["@", "./"],
-          ["@frontend", "./resources/js/frontend/"],
-          ["@components", "./resources/js/components/"]
-        ],
-        "extensions": [".js", ".vue"]
-      }
-    }
-  }
+  "rules": {}
 }

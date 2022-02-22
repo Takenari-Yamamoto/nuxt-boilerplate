@@ -13,9 +13,7 @@ export default defineComponent({
     const text1 = ref('');
     const text2 = ref();
 
-    watch([text1, text2], () => {
-      alert('refObjが変更されました');
-    });
+    watch([text1, text2], () => {});
 
     return { text1, text2 };
   },
