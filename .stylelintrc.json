@@ -1,0 +1,35 @@
+{
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-recommended-scss",
+    "stylelint-config-recess-order",
+    "stylelint-rscss/config"
+  ],
+  "plugins": [
+    "stylelint-csstree-validator",
+    "stylelint-scss",
+    "stylelint-selector-bem-pattern"
+  ],
+  "rules": {
+    "indentation": [
+      2,
+      {
+        "baseIndentLevel": 0
+      }
+    ],
+    "max-nesting-depth": [
+      1,
+      {
+        "ignore": ["pseudo-classes"],
+        "ignoreAtRules": ["include", "media"]
+      }
+    ],
+    "csstree/validator": true,
+    "rscss/class-format": [
+      true,
+      {
+        "element": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$"
+      }
+    ]
+  }
+}
