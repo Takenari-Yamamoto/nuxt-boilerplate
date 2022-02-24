@@ -19,3 +19,11 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+@import 'assets/scss/color';
+
+.index-container {
+  padding: 16px;
+}
+</style>

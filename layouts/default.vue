@@ -1,7 +1,9 @@
 <template>
   <div>
     <AppHeader :top="tabList.top" :paths="tabList.list" />
-    <Nuxt />
+    <div class="default-container">
+      <Nuxt />
+    </div>
   </div>
 </template>
 
