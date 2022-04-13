@@ -6,16 +6,39 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from '@nuxtjs/composition-api';
+import { defineComponent, onMounted, ref } from '@nuxtjs/composition-api';
 
 export default defineComponent({
   setup() {
-    const text1 = ref('');
-    const text2 = ref();
+    // 一番よく使うやつ
+    const data1 = ref();
+    const data2 = ref();
+    const fetchData = async () => {
+      const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+      const json = await res.json();
+      data1.value = json;
+    };
 
-    watch([text1, text2], () => {});
+    // const fetchByPromise = () => {
+    //   const res = fetch('https://jsonplaceholder.typicode.com/posts');
+    // };
 
-    return { text1, text2 };
+    // const fetchByPromise = (): Promise<void> => {
+    //   // let res: Response;
+    //   const res = fetch('https://jsonplaceholder.typicode.com/posts');
+    //   return new Promise(() => {
+    //     // new Promsie(res);
+    //   }).then((res) => {
+    //     console.log(res);
+    //     data2.value = res;
+    //   });
+    // };
+
+    onMounted(() => {
+      fetchData();
+      // fetchByPromise();
+    });
+    return { data1, data2 };
   },
 });
 </script>
