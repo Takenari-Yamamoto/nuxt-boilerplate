@@ -1,7 +1,8 @@
 <template>
   <div class="index">
-    <AppButton text="aaa" />
-    <AppInput />
+    <!-- <AppButton text="aaa" />
+    <AppInput /> -->
+    <p>{{ obj.name }}</p>
   </div>
 </template>
 
@@ -16,29 +17,41 @@ export default defineComponent({
     const fetchData = async () => {
       const res = await fetch('https://jsonplaceholder.typicode.com/posts');
       const json = await res.json();
-      data1.value = json;
+      return json;
     };
 
+    fetch('./user.json')
+      .then((res) => {
+        console.log(res);
+        return res.json();
+      })
+      .then((json) => {
+        console.log(json);
+      });
     // const fetchByPromise = () => {
     //   const res = fetch('https://jsonplaceholder.typicode.com/posts');
     // };
 
-    // const fetchByPromise = (): Promise<void> => {
-    //   // let res: Response;
-    //   const res = fetch('https://jsonplaceholder.typicode.com/posts');
-    //   return new Promise(() => {
-    //     // new Promsie(res);
-    //   }).then((res) => {
-    //     console.log(res);
-    //     data2.value = res;
-    //   });
-    // };
+    const fetchByPromise = () => {
+      fetch('https://jsonplaceholder.typicode.com/posts')
+        .then((res) => {
+          return res.json();
+        })
+        .then((json) => {
+          data2.value = json;
+        });
+    };
+
+    const obj = ref({
+      // name: 'TAKE',
+      age: 24,
+    });
 
     onMounted(() => {
       fetchData();
-      // fetchByPromise();
+      fetchByPromise();
     });
-    return { data1, data2 };
+    return { data1, data2, obj };
   },
 });
 </script>
